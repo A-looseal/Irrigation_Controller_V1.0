@@ -1,0 +1,72 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\Paris Desktop\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.5\\cores\\arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\Paris Desktop\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.5\\variants\\eightanaloginputs"
+  },
+  {
+    "Sourcefile": "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\builds\\sketch\\Irrigation_Controller.ino.cpp",
+    "Include": "millisDelay.h",
+    "Includepath": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src"
+  },
+  {
+    "Sourcefile": "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\builds\\sketch\\Irrigation_Controller.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\builds\\sketch\\src\\controllers\\deviceController.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\BufferedInput.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\BufferedOutput.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\PinFlasher.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\SafeString.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\SafeStringReader.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\SafeStringStream.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\SerialComs.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\loopTimer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\Paris Desktop\\Documents\\Arduino\\libraries\\SafeString\\src\\millisDelay.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

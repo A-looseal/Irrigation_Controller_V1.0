@@ -11,8 +11,18 @@ class DeviceController {
     byte devicePin;
 
   public:
-    bool deviceCurrentState;
-    int deviceCurrentCycleCount;
+  bool alarmState;
+  bool enableAlarm_A1;
+  bool enableAlarm_A2;
+  bool enableAlarm_A3;
+  bool enableAlarm_A4;
+  bool enableAlarm_A5;
+  bool enableAlarm_A6;
+
+    bool deviceState;
+    int currentCycleCount;
+    int totalCycleCount;
+
 
     DeviceController(byte devicePin);
     void turnDeviceOn();

@@ -3,5 +3,6 @@
     "configuration": "cpu=atmega328",
     "board": "arduino:avr:nano",
     "sketch": "Irrigation_Controller.ino",
-    "output": "./builds"
+    "output": "./builds",
+    "programmer": "arduino:arduinoisporg"
 }

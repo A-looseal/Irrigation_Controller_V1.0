@@ -18,9 +18,9 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-//#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
-//  #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
+// #define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+#define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
 //  #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
 //  #define ENABLE_RED_LIGHT      // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
@@ -126,7 +126,8 @@ void loop()
 #endif
 
 #ifdef ENABLE_OXYGEN_PUMP
-    checkOxygenPumpAlarm();
+    checkOxygenPumpAlarms();
+    toggleOxygenPump();
     oled_displayOxygenPumpInfo();
     serial_displayOxygenPumpState();
 #ifdef ENABLE_OLED_OUTPUT
@@ -141,7 +142,7 @@ void loop()
 #endif
 
 #ifdef ENABLE_WHITE_LIGHT
-    checkWhiteLightAlarm();
+    checkWhiteLightAlarms();
     toggleWhiteLights();
     oled_displayWhiteLightInfo();
     serial_displayWhiteLightState();
@@ -157,7 +158,7 @@ void loop()
 #endif
 
 #ifdef ENABLE_RED_LIGHT
-    checkRedLightAlarm();
+    checkRedLightAlarms();
     toggleRedLights();
     oled_displayRedLightInfo();
     serial_displayRedLightState();
@@ -206,7 +207,7 @@ void checkSafetyButton()
 #pragma endregion
 
 #pragma region RELAY_LOGIC
-// CHECK TEST DEVICE
+// CHECK TEST DEVICE ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkTestDeviceAlarms()
 {
@@ -362,7 +363,7 @@ void toggleTestDevice()
     }
 }
 
-// CHECK WATER PUMP ALARM
+// CHECK WATER PUMP ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkWaterPumpAlarms()
 {
@@ -518,57 +519,65 @@ void toggleWaterPump()
     }
 }
 
+//CHECK OXYGEN PUMP ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkOxygenPumpAlarms()
 {
-    // TEST DEVICE A1
+    // OXYGEN PUMP ALARM #1
     if (oxygenPump.enableAlarm_A1 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A1) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A1) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A1) &&
             (oxygenPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #1 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.lastAlarmTriggered = 1;
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A1) && // if the current time matches the set alarm time
+            (oxygenPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (oxygenPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm reset!");
+            Serial.println("Oxygen Pump Alarm #1 reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
-            oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();        // stop the ON interval timer
-            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
-            oxygenPump.currentCycleCount = 0;
+            oxygenPump.alarmState = false;    // set the alarm state to OFF so we dont repeatidly run this code
+            oxygenPumpTimer.stop();           // stop the ON interval timer
+            oxygenPump.turnDeviceOff();       // turn OFF the device indefenitley
+            oxygenPump.currentCycleCount = 0; // reset the amount of cycle counts durring alarm
         }
     }
-    // TEST DEVICE A2
-    if (waterPump.enableAlarm_A2 == true)
+
+    // OXYGEN PUMP ALARM #2
+    if (oxygenPump.enableAlarm_A2 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A2) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A2) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A2) &&
             (oxygenPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #2 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.lastAlarmTriggered = 2;
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A2) && // if the current time matches the set alarm time
+            (oxygenPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (oxygenPump.lastAlarmTriggered == 2))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm reset!");
+            Serial.println("Oxygen Pump Alarm #2 reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
@@ -577,32 +586,68 @@ void checkOxygenPumpAlarms()
             oxygenPump.currentCycleCount = 0;
         }
     }
-    // TEST DEVICE A3
-    if (testDevice.enableAlarm_A3 == true)
+
+    // OXYGEN PUMP ALARM #3
+    if (waterPump.enableAlarm_A3 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A3) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A3) &&
-            (oxygenPump.alarmState == false))
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A3) &&
+            (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #3 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
-            oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
-            oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 3;
+            waterPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A3) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Oxygen Pump Alarm #3 reset!");
+            Serial.println("Turning 'Oxygen Pump' OFF.");
+#endif
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
+        }
+    }
+
+    // OXYGEN PUMP ALARM #4
+    if (waterPump.enableAlarm_A4 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A4) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A4) &&
+            (waterPump.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Oxygen Pump Alarm #4 Triggered!");
+            Serial.println("Turning 'Oxygen Pump' ON.");
+#endif
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 4;
+            waterPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A4) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
             Serial.println("Oxygen Pump Alarm reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
-            oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();        // stop the ON interval timer
-            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
-            oxygenPump.currentCycleCount = 0;
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
         }
     }
 }

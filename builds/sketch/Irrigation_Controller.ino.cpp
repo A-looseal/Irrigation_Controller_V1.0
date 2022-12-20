@@ -20,9 +20,9 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-//#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
-//  #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
+// #define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+#define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
 //  #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
 //  #define ENABLE_RED_LIGHT      // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
@@ -89,57 +89,57 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 void setup();
 #line 94 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void loop();
-#line 179 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 180 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupSerialConnection(int baud, int startupDelay);
-#line 197 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 198 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkSafetyButton();
-#line 211 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 212 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkTestDeviceAlarms();
-#line 342 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 343 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleTestDevice();
-#line 367 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 368 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkWaterPumpAlarms();
-#line 498 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 499 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWaterPump();
-#line 522 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 524 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkOxygenPumpAlarms();
-#line 610 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 655 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleOxygenPump();
-#line 634 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 679 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkWhiteLightAlarms();
-#line 722 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 767 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWhiteLight();
-#line 746 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 791 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkRedLightAlarms();
-#line 834 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 879 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleRedLight();
-#line 861 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 906 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayTestDeviceState();
-#line 883 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 928 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayWaterPumpState();
-#line 905 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 950 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayOxygenPumpState();
-#line 927 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 972 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayWhiteLightState();
-#line 949 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 994 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayRedLightState();
-#line 975 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1020 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupDisplay(int startupDelay);
-#line 992 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1037 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupRTC(int startupDelay);
-#line 1018 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1063 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTime(DateTime now, char xPos, char yPos);
-#line 1035 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1080 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTemperature(DateTime now, char xPos, char yPos);
-#line 1049 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1094 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTestDeviceInfo();
-#line 1097 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1142 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWaterPumpInfo();
-#line 1145 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1190 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayOxygenPumpInfo();
-#line 1193 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1238 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWhiteLightInfo();
-#line 1241 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1286 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayRedLightInfo();
 #line 86 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setup()
@@ -185,7 +185,8 @@ void loop()
 #endif
 
 #ifdef ENABLE_OXYGEN_PUMP
-    checkOxygenPumpAlarm();
+    checkOxygenPumpAlarms();
+    toggleOxygenPump();
     oled_displayOxygenPumpInfo();
     serial_displayOxygenPumpState();
 #ifdef ENABLE_OLED_OUTPUT
@@ -200,7 +201,7 @@ void loop()
 #endif
 
 #ifdef ENABLE_WHITE_LIGHT
-    checkWhiteLightAlarm();
+    checkWhiteLightAlarms();
     toggleWhiteLights();
     oled_displayWhiteLightInfo();
     serial_displayWhiteLightState();
@@ -216,7 +217,7 @@ void loop()
 #endif
 
 #ifdef ENABLE_RED_LIGHT
-    checkRedLightAlarm();
+    checkRedLightAlarms();
     toggleRedLights();
     oled_displayRedLightInfo();
     serial_displayRedLightState();
@@ -265,7 +266,7 @@ void checkSafetyButton()
 #pragma endregion
 
 #pragma region RELAY_LOGIC
-// CHECK TEST DEVICE
+// CHECK TEST DEVICE ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkTestDeviceAlarms()
 {
@@ -421,7 +422,7 @@ void toggleTestDevice()
     }
 }
 
-// CHECK WATER PUMP ALARM
+// CHECK WATER PUMP ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkWaterPumpAlarms()
 {
@@ -577,57 +578,65 @@ void toggleWaterPump()
     }
 }
 
+//CHECK OXYGEN PUMP ALARMS
 // Check the set alarms and see if any of them are triggered
 void checkOxygenPumpAlarms()
 {
-    // TEST DEVICE A1
+    // OXYGEN PUMP ALARM #1
     if (oxygenPump.enableAlarm_A1 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A1) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A1) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A1) &&
             (oxygenPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #1 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.lastAlarmTriggered = 1;
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A1) && // if the current time matches the set alarm time
+            (oxygenPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (oxygenPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm reset!");
+            Serial.println("Oxygen Pump Alarm #1 reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
-            oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();        // stop the ON interval timer
-            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
-            oxygenPump.currentCycleCount = 0;
+            oxygenPump.alarmState = false;    // set the alarm state to OFF so we dont repeatidly run this code
+            oxygenPumpTimer.stop();           // stop the ON interval timer
+            oxygenPump.turnDeviceOff();       // turn OFF the device indefenitley
+            oxygenPump.currentCycleCount = 0; // reset the amount of cycle counts durring alarm
         }
     }
-    // TEST DEVICE A2
-    if (waterPump.enableAlarm_A2 == true)
+
+    // OXYGEN PUMP ALARM #2
+    if (oxygenPump.enableAlarm_A2 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A2) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A2) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A2) &&
             (oxygenPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #2 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.lastAlarmTriggered = 2;
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A2) && // if the current time matches the set alarm time
+            (oxygenPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (oxygenPump.lastAlarmTriggered == 2))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm reset!");
+            Serial.println("Oxygen Pump Alarm #2 reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
@@ -636,32 +645,68 @@ void checkOxygenPumpAlarms()
             oxygenPump.currentCycleCount = 0;
         }
     }
-    // TEST DEVICE A3
-    if (testDevice.enableAlarm_A3 == true)
+
+    // OXYGEN PUMP ALARM #3
+    if (waterPump.enableAlarm_A3 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A3) &&
-            (now.hour() <= OXYGEN_PUMP_OFF_HOUR_A3) &&
-            (oxygenPump.alarmState == false))
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A3) &&
+            (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Oxygen Pump Alarm Triggered!");
+            Serial.println("Oxygen Pump Alarm #3 Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
-            oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
-            oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 3;
+            waterPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A3) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Oxygen Pump Alarm #3 reset!");
+            Serial.println("Turning 'Oxygen Pump' OFF.");
+#endif
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
+        }
+    }
+
+    // OXYGEN PUMP ALARM #4
+    if (waterPump.enableAlarm_A4 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= OXYGEN_PUMP_ON_HOUR_A4) &&
+            (now.hour() < OXYGEN_PUMP_OFF_HOUR_A4) &&
+            (waterPump.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Oxygen Pump Alarm #4 Triggered!");
+            Serial.println("Turning 'Oxygen Pump' ON.");
+#endif
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 4;
+            waterPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > OXYGEN_PUMP_OFF_HOUR_A4) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
             Serial.println("Oxygen Pump Alarm reset!");
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
-            oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();        // stop the ON interval timer
-            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
-            oxygenPump.currentCycleCount = 0;
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
         }
     }
 }

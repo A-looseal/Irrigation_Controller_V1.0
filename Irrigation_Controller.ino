@@ -18,16 +18,16 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-// #define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
-// #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
-// #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
-#define ENABLE_RED_LIGHT // use this line to enable/dissable use of the RED_LIGHT
+#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+#define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
+#define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
+//#define ENABLE_RED_LIGHT   // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
 
 #pragma region SYSTEM_DEFENITIONS
-// #define RESET_RTC_TIME
-#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
+#define RESET_RTC_TIME
+//#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
 #define ENABLE_OLED_OUTPUT   // use this line to enable/disable usage of the OLED device
 #define BAUD_RATE 9600
 #define STARTUP_DELAY 1000
@@ -90,6 +90,12 @@ void setup()
     setupDisplay(STARTUP_DELAY);
     setupRTC(STARTUP_DELAY);
 
+    testDevice.turnDeviceOff();
+    waterPump.turnDeviceOff();
+    oxygenPump.turnDeviceOff();
+    whiteLight.turnDeviceOff();
+    redLight.turnDeviceOff();
+
     // turn on test device alarms
     testDevice.enableAlarm_A1 = true;
     testDevice.enableAlarm_A2 = true;
@@ -115,10 +121,15 @@ void setup()
     redLight.enableAlarm_A1 = true;
     redLight.enableAlarm_A2 = true;
     redLight.enableAlarm_A3 = true;
+
+    delay(5000);
 }
 
 void loop()
 {
+    display.clearDisplay();
+    display.display();
+
     now = rtc.now(); // get the time from the RTC module
     // oled_displayTime(now);     // prints the current time from RTC to the serial console
     // printTemperature_RTC(now); // prints the current temperature reading from RTC module to the serial console
@@ -128,36 +139,48 @@ void loop()
 #ifdef ENABLE_TEST_DEVICE
     checkTestDeviceAlarms();
     toggleTestDevice();
+    if (testDevice.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
-    oled_displayTestDeviceInfo();
+        oled_displayTestDeviceInfo();
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
-    serial_displayTestDeviceState();
-    Serial.print("test device alarm state: ");
-    Serial.println(testDevice.alarmState);
-    Serial.println("----------------");
-    Serial.println("----------------");
+        serial_displayTestDeviceState();
+        Serial.print("test device alarm state: ");
+        Serial.println(testDevice.alarmState);
+        Serial.println("----------------");
+        Serial.println("----------------");
 #endif
+    }
+
 #endif
 
 #ifdef ENABLE_WATER_PUMP
     checkWaterPumpAlarms();
     toggleWaterPump();
+
+    //
+    if (waterPump.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
-    oled_displayWaterPumpInfo();
+        oled_displayWaterPumpInfo();
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
-    serial_displayWaterPumpState();
-    Serial.print("Water Pump alarm state: ");
-    Serial.println(waterPump.alarmState);
-    Serial.println("----------------");
-    Serial.println("----------------");
+        serial_displayWaterPumpState();
+        Serial.print("Water Pump alarm state: ");
+        Serial.println(waterPump.alarmState);
+        Serial.println("----------------");
+        Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_OXYGEN_PUMP
     checkOxygenPumpAlarms();
     toggleOxygenPump();
+
+    if (oxygenPump.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayOxygenPumpInfo();
 #endif
@@ -168,11 +191,15 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_WHITE_LIGHT
     checkWhiteLightAlarms();
     toggleWhiteLight();
+
+    if (whiteLight.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayWhiteLightInfo();
 #endif
@@ -183,11 +210,15 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_RED_LIGHT
     checkRedLightAlarms();
     toggleRedLight();
+
+    if (redLight.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayRedLightInfo();
 #endif
@@ -198,9 +229,10 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
-    delay(1000);
+    //delay(1000);
 }
 
 #pragma region STANDARD_FUNCTIONS
@@ -1142,10 +1174,10 @@ void setupDisplay(int startupDelay)
         for (;;)
             ; // Don't proceed, loop forever
     }
-
+    display.display();
+    delay(startupDelay);
     display.clearDisplay();
     Serial.println("OLED Setup Complete.");
-    delay(startupDelay);
 #endif
 }
 // SETUP RTC CLOCK

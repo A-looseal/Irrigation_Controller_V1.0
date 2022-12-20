@@ -20,16 +20,16 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-// #define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
-// #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
-// #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
-#define ENABLE_RED_LIGHT // use this line to enable/dissable use of the RED_LIGHT
+#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+#define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
+#define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
+//#define ENABLE_RED_LIGHT   // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
 
 #pragma region SYSTEM_DEFENITIONS
-// #define RESET_RTC_TIME
-#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
+#define RESET_RTC_TIME
+//#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
 #define ENABLE_OLED_OUTPUT   // use this line to enable/disable usage of the OLED device
 #define BAUD_RATE 9600
 #define STARTUP_DELAY 1000
@@ -87,59 +87,59 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 #line 86 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setup();
-#line 120 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 128 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void loop();
-#line 207 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
-void setupSerialConnection(int baud, int startupDelay);
-#line 225 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
-void checkSafetyButton();
 #line 239 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void setupSerialConnection(int baud, int startupDelay);
+#line 257 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void checkSafetyButton();
+#line 271 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkTestDeviceAlarms();
-#line 370 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 402 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleTestDevice();
-#line 395 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 427 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkWaterPumpAlarms();
-#line 526 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 558 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWaterPump();
-#line 551 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 583 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkOxygenPumpAlarms();
-#line 682 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 714 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleOxygenPump();
-#line 707 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 739 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkWhiteLightAlarms();
-#line 838 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 870 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWhiteLight();
-#line 863 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 895 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkRedLightAlarms();
-#line 994 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1026 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleRedLight();
-#line 1021 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1053 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayTestDeviceState();
-#line 1043 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1075 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayWaterPumpState();
-#line 1065 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1097 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayOxygenPumpState();
-#line 1087 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1119 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayWhiteLightState();
-#line 1109 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1141 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void serial_displayRedLightState();
-#line 1135 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1167 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupDisplay(int startupDelay);
-#line 1152 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1184 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupRTC(int startupDelay);
-#line 1178 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1210 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTime(DateTime now, char xPos, char yPos);
-#line 1195 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1227 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTemperature(DateTime now, char xPos, char yPos);
-#line 1209 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1241 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTestDeviceInfo();
-#line 1257 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1289 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWaterPumpInfo();
-#line 1305 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1337 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayOxygenPumpInfo();
-#line 1353 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1385 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWhiteLightInfo();
-#line 1401 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1433 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayRedLightInfo();
 #line 86 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setup()
@@ -148,6 +148,12 @@ void setup()
     // setup and establish a connection to the OLED DISPLAY
     setupDisplay(STARTUP_DELAY);
     setupRTC(STARTUP_DELAY);
+
+    testDevice.turnDeviceOff();
+    waterPump.turnDeviceOff();
+    oxygenPump.turnDeviceOff();
+    whiteLight.turnDeviceOff();
+    redLight.turnDeviceOff();
 
     // turn on test device alarms
     testDevice.enableAlarm_A1 = true;
@@ -174,10 +180,15 @@ void setup()
     redLight.enableAlarm_A1 = true;
     redLight.enableAlarm_A2 = true;
     redLight.enableAlarm_A3 = true;
+
+    delay(5000);
 }
 
 void loop()
 {
+    display.clearDisplay();
+    display.display();
+
     now = rtc.now(); // get the time from the RTC module
     // oled_displayTime(now);     // prints the current time from RTC to the serial console
     // printTemperature_RTC(now); // prints the current temperature reading from RTC module to the serial console
@@ -187,36 +198,48 @@ void loop()
 #ifdef ENABLE_TEST_DEVICE
     checkTestDeviceAlarms();
     toggleTestDevice();
+    if (testDevice.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
-    oled_displayTestDeviceInfo();
+        oled_displayTestDeviceInfo();
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
-    serial_displayTestDeviceState();
-    Serial.print("test device alarm state: ");
-    Serial.println(testDevice.alarmState);
-    Serial.println("----------------");
-    Serial.println("----------------");
+        serial_displayTestDeviceState();
+        Serial.print("test device alarm state: ");
+        Serial.println(testDevice.alarmState);
+        Serial.println("----------------");
+        Serial.println("----------------");
 #endif
+    }
+
 #endif
 
 #ifdef ENABLE_WATER_PUMP
     checkWaterPumpAlarms();
     toggleWaterPump();
+
+    //
+    if (waterPump.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
-    oled_displayWaterPumpInfo();
+        oled_displayWaterPumpInfo();
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
-    serial_displayWaterPumpState();
-    Serial.print("Water Pump alarm state: ");
-    Serial.println(waterPump.alarmState);
-    Serial.println("----------------");
-    Serial.println("----------------");
+        serial_displayWaterPumpState();
+        Serial.print("Water Pump alarm state: ");
+        Serial.println(waterPump.alarmState);
+        Serial.println("----------------");
+        Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_OXYGEN_PUMP
     checkOxygenPumpAlarms();
     toggleOxygenPump();
+
+    if (oxygenPump.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayOxygenPumpInfo();
 #endif
@@ -227,11 +250,15 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_WHITE_LIGHT
     checkWhiteLightAlarms();
     toggleWhiteLight();
+
+    if (whiteLight.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayWhiteLightInfo();
 #endif
@@ -242,11 +269,15 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
 #ifdef ENABLE_RED_LIGHT
     checkRedLightAlarms();
     toggleRedLight();
+
+    if (redLight.alarmState == HIGH)
+    {
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayRedLightInfo();
 #endif
@@ -257,9 +288,10 @@ void loop()
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
+    }
 #endif
 
-    delay(1000);
+    //delay(1000);
 }
 
 #pragma region STANDARD_FUNCTIONS
@@ -1201,10 +1233,10 @@ void setupDisplay(int startupDelay)
         for (;;)
             ; // Don't proceed, loop forever
     }
-
+    display.display();
+    delay(startupDelay);
     display.clearDisplay();
     Serial.println("OLED Setup Complete.");
-    delay(startupDelay);
 #endif
 }
 // SETUP RTC CLOCK

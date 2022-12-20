@@ -8,10 +8,10 @@ DeviceController::DeviceController(byte _devicePin)
   pinMode(devicePin, OUTPUT);   // set the mode of the pin to OUTPUT
   digitalWrite(devicePin, LOW); // send LOW signal to the device in rder to turn it OFF
   deviceState = LOW;            // set device state to LOW
-  enableAlarm_A1 = true;
-  enableAlarm_A2 = true;
-  enableAlarm_A3 = true;
-  enableAlarm_A4 = true;
+  enableAlarm_A1 = false;
+  enableAlarm_A2 = false;
+  enableAlarm_A3 = false;
+  enableAlarm_A4 = false;
   enableAlarm_A5 = false;
   lastAlarmTriggered = 0;
 }

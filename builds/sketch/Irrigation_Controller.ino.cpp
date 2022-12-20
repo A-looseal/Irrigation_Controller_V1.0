@@ -19,27 +19,27 @@
 #include <millisDelay.h> //interval timer library
 #pragma endregion
 
-#pragma region ENABLE/DISABLE DEVICES
+#pragma region ENABLE /DISABLE_DEVICES
 #define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-//#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
-// #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
-// #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
-// #define ENABLE_RED_LIGHT      // use this line to enable/dissable use of the RED_LIGHT
+// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+//  #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
+//  #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
+//  #define ENABLE_RED_LIGHT      // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
 
-#pragma region SYSTEM DEFENITIONS
+#pragma region SYSTEM_DEFENITIONS
 // #define RESET_RTC_TIME
 #define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
-//#define ENABLE_OLED_OUTPUT // use this line to enable/disable usage of the OLED device
+#define ENABLE_OLED_OUTPUT   // use this line to enable/disable usage of the OLED device
 #define BAUD_RATE 9600
 #define STARTUP_DELAY 1000
 #pragma endregion
-#pragma region SYSTEM INTERVAL TIMERS
+#pragma region SYSTEM_INTERVAL TIMERS
 millisDelay timer_oled_displayGeneralInfo;
 millisDelay timer_oled_displayPumpInfo;
 #pragma endregion
 
-#pragma region DEVICE CONSTRUCTORS
+#pragma region DEVICE_CONSTRUCTORS
 // WATER PUMP CONSTRUCTORS
 millisDelay waterPumpTimer; // create a new interval timer object to track the on interval
 DeviceController waterPump(2);
@@ -60,20 +60,20 @@ DeviceController redLight(5);
 millisDelay testDeviceTimer;     // create a new interval timer object to track the on interval
 DeviceController testDevice(13); // create a new device object
 #pragma endregion
-#pragma region DEVICE INTERVAL TIMERS
+#pragma region DEVICE_INTERVAL TIMERS
 const unsigned long TEST_DEVICE_INTERVAL = 10000; // in ms
 const unsigned long WATER_PUMP_INTERVAL = 10000;  // in ms
-const unsigned long OXYGEN_PUMP_INTERVAL = 10000;  // in ms
-const unsigned long WHITE_LIGHT_INTERVAL = 10000;  // in ms
-const unsigned long RED_LIGHT_INTERVAL = 10000;  // in ms
+const unsigned long OXYGEN_PUMP_INTERVAL = 10000; // in ms
+const unsigned long WHITE_LIGHT_INTERVAL = 10000; // in ms
+const unsigned long RED_LIGHT_INTERVAL = 10000;   // in ms
 #pragma endregion
 
-#pragma region HID CONSTRUCTORS
+#pragma region HID_CONSTRUCTORS
 ButtonController safetySwitch(11);
 ButtonController pumpOverride(10);
 #pragma endregion
 
-#pragma region I2C DEVICES
+#pragma region I2C_DEVICES
 #define SCREEN_WIDTH 128    // OLED display width, in pixels
 #define SCREEN_HEIGHT 32    // OLED display height, in pixels
 #define OLED_RESET -1       // Reset pin # (or -1 if sharing Arduino reset pin)
@@ -87,51 +87,59 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 #line 86 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setup();
-#line 97 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 94 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void loop();
 #line 179 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupSerialConnection(int baud, int startupDelay);
 #line 197 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkSafetyButton();
 #line 210 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
-void checkTestDeviceAlarms();
-#line 299 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void checkTestDeviceAlarms(DeviceController currentDevice);
+#line 341 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleTestDevice();
-#line 323 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
-void checkWaterPumpAlarms();
-#line 412 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 365 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void checkwaterPumpAlarms();
+#line 496 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWaterPump();
-#line 436 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 520 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkOxygenPumpAlarms();
-#line 525 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 608 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleOxygenPump();
-#line 549 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 632 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkWhiteLightAlarms();
-#line 638 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 720 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleWhiteLight();
-#line 662 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 744 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void checkRedLightAlarms();
-#line 751 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 832 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void toggleRedLight();
-#line 778 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
-void printTestDeviceState();
-#line 804 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 859 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void serial_displayTestDeviceState();
+#line 881 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void serial_displayWaterPumpState();
+#line 903 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void serial_displayOxygenPumpState();
+#line 925 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void serial_displayWhiteLightState();
+#line 947 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+void serial_displayRedLightState();
+#line 973 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupDisplay(int startupDelay);
-#line 821 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 990 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setupRTC(int startupDelay);
-#line 847 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1016 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTime(DateTime now, char xPos, char yPos);
-#line 864 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1033 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTemperature(DateTime now, char xPos, char yPos);
-#line 878 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1047 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayTestDeviceInfo();
-#line 926 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1095 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWaterPumpInfo();
-#line 974 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1143 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayOxygenPumpInfo();
-#line 1022 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1191 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayWhiteLightInfo();
-#line 1070 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
+#line 1239 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void oled_displayRedLightInfo();
 #line 86 "e:\\THE_CREATION_STATION\\#Arduino_Workspace\\Irrigation_Controller_V1.0\\Irrigation_Controller.ino"
 void setup()
@@ -140,9 +148,6 @@ void setup()
     // setup and establish a connection to the OLED DISPLAY
     setupDisplay(STARTUP_DELAY);
     setupRTC(STARTUP_DELAY);
-
-
-    
 }
 
 void loop()
@@ -151,13 +156,13 @@ void loop()
     // oled_displayTime(now);     // prints the current time from RTC to the serial console
     // printTemperature_RTC(now); // prints the current temperature reading from RTC module to the serial console
 
-    //checkSafetyButton();
+    // checkSafetyButton();
 
 #ifdef ENABLE_TEST_DEVICE
-    checkTestDeviceAlarms();
-    //toggleTestDevice();
+    checkTestDeviceAlarms(testDevice);
+    toggleTestDevice();
     oled_displayTestDeviceInfo();
-    printTestDeviceState();
+    serial_displayTestDeviceState();
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("test device alarm state: ");
     Serial.println(testDevice.alarmState);
@@ -170,6 +175,7 @@ void loop()
     checkWaterPumpAlarms();
     toggleWaterPump();
     oled_displayWaterPumpInfo();
+    serial_displayWaterPumpState();
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("Water Pump alarm state: ");
     Serial.println(waterPumpAlarmState);
@@ -180,8 +186,8 @@ void loop()
 
 #ifdef ENABLE_OXYGEN_PUMP
     checkOxygenPumpAlarm();
-    toggleOxygenPump();
-    printOxygenPumpState();
+    oled_displayOxygenPumpInfo();
+    serial_displayOxygenPumpState();
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayOxygenPumpInfo();
 #endif
@@ -196,7 +202,8 @@ void loop()
 #ifdef ENABLE_WHITE_LIGHT
     checkWhiteLightAlarm();
     toggleWhiteLights();
-    printWhiteLightState();
+    oled_displayWhiteLightInfo();
+    serial_displayWhiteLightState();
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayOxygenPumpInfo();
 #endif
@@ -211,7 +218,8 @@ void loop()
 #ifdef ENABLE_RED_LIGHT
     checkRedLightAlarm();
     toggleRedLights();
-    printRedLightState();
+    oled_displayRedLightInfo();
+    serial_displayRedLightState();
 #ifdef ENABLE_OLED_OUTPUT
     oled_displayRedLightInfo();
 #endif
@@ -226,7 +234,7 @@ void loop()
     delay(1000);
 }
 
-#pragma region STANDARD FUNCTIONS
+#pragma region STANDARD_FUNCTIONS
 void setupSerialConnection(int baud, int startupDelay)
 {
 #ifdef ENABLE_SERIAL_OUTPUT // only output to the serial console if enabled
@@ -256,95 +264,137 @@ void checkSafetyButton()
 
 #pragma endregion
 
-#pragma region RELAY LOGIC
+#pragma region RELAY_LOGIC
 // Check the set alarms and see if any of them are triggered
-void checkTestDeviceAlarms()
+void checkTestDeviceAlarms(DeviceController currentDevice)
 {
-    // TEST DEVICE A1
+    // TEST DEVICE ALARM #1
     if (testDevice.enableAlarm_A1 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= 1) &&
-            (now.hour() < 10) &&
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A1) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A1) &&
             (testDevice.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm Triggered!");
+            Serial.println("Test Device Alarm #1 Triggered!");
             Serial.println("Turning 'Test Device' ON.");
 #endif
-            testDevice.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.lastAlarmTriggered = 1;
             testDeviceTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
             testDevice.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else if ((testDevice.alarmState == true))
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A1) && // if the current time matches the set alarm time
+            (testDevice.alarmState == true) &&        // if the alarm is TRIGGERED
+            (testDevice.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm reset!");
+            Serial.println("Test Device Alarm #1 reset!");
             Serial.println("Turning 'Test Device' OFF.");
 #endif
-            testDevice.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            testDeviceTimer.stop();       // stop the ON interval timer
-            testDevice.turnDeviceOff();   // turn OFF the device indefenitley
-            testDevice.currentCycleCount = 0;
+            testDevice.alarmState = false;    // set the alarm state to OFF so we dont repeatidly run this code
+            testDeviceTimer.stop();           // stop the ON interval timer
+            testDevice.turnDeviceOff();       // turn OFF the device indefenitley
+            testDevice.currentCycleCount = 0; // reset the amount of cycle counts durring alarm
         }
     }
-    // TEST DEVICE A2
+
+    // TEST DEVICE ALARM #2
     if (testDevice.enableAlarm_A2 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
         if ((now.hour() >= TEST_DEVICE_ON_HOUR_A2) &&
-            (now.hour() <= TEST_DEVICE_OFF_HOUR_A2) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A2) &&
             (testDevice.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm Triggered!");
+            Serial.println("Test Device Alarm #2 Triggered!");
             Serial.println("Turning 'Test Device' ON.");
 #endif
-            testDevice.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.lastAlarmTriggered = 2;
             testDeviceTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
             testDevice.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A2) && // if the current time matches the set alarm time
+            (testDevice.alarmState == true) &&        // if the alarm is TRIGGERED
+            (testDevice.lastAlarmTriggered == 2))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm reset!");
+            Serial.println("Test Device Alarm #2 reset!");
             Serial.println("Turning 'Test Device' OFF.");
 #endif
             testDevice.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            testDeviceTimer.stop();       // stop the ON interval timer
-            testDevice.turnDeviceOff();   // turn OFF the device indefenitley
-            testDevice.currentCycleCount = 0;
-        }
-    }
-    // TEST DEVICE A2
-    if (testDevice.enableAlarm_A3 == true)
-    {
-        // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A3) &&
-            (now.hour() <= TEST_DEVICE_OFF_HOUR_A3) &&
-            (testDevice.alarmState == false))
-        {
-#ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm Triggered!");
-            Serial.println("Turning 'Test Device' ON.");
-#endif
-            testDevice.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
-            testDeviceTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
-            testDevice.turnDeviceOn();                   // turn ON the device for the first time
-        }
-        else
-        {
-#ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm reset!");
-            Serial.println("Turning 'Test Device' OFF.");
-#endif
-            testDevice.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            testDeviceTimer.stop();       // stop the ON interval timer
-            testDevice.turnDeviceOff();   // turn OFF the device indefenitley
+            testDeviceTimer.stop();        // stop the ON interval timer
+            testDevice.turnDeviceOff();    // turn OFF the device indefenitley
             testDevice.currentCycleCount = 0;
         }
     }
 
+    // TEST DEVICE ALARM #3
+    if (testDevice.enableAlarm_A3 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A3) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A3) &&
+            (testDevice.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #3 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
+#endif
+            testDevice.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.lastAlarmTriggered = 3;
+            testDeviceTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            testDevice.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A3) && // if the current time matches the set alarm time
+            (testDevice.alarmState == true) &&        // if the alarm is TRIGGERED
+            (testDevice.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #3 reset!");
+            Serial.println("Turning 'Test Device' OFF.");
+#endif
+            testDevice.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            testDeviceTimer.stop();        // stop the ON interval timer
+            testDevice.turnDeviceOff();    // turn OFF the device indefenitley
+            testDevice.currentCycleCount = 0;
+        }
+    }
+
+    // TEST DEVICE ALARM #4
+    if (testDevice.enableAlarm_A4 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A4) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A4) &&
+            (testDevice.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #4 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
+#endif
+            testDevice.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            testDevice.lastAlarmTriggered = 4;
+            testDeviceTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            testDevice.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A4) && // if the current time matches the set alarm time
+            (testDevice.alarmState == true) &&        // if the alarm is TRIGGERED
+            (testDevice.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm reset!");
+            Serial.println("Turning 'Test Device' OFF.");
+#endif
+            testDevice.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            testDeviceTimer.stop();        // stop the ON interval timer
+            testDevice.turnDeviceOff();    // turn OFF the device indefenitley
+            testDevice.currentCycleCount = 0;
+        }
+    }
 }
 // Toggle the device state on/off forever
 void toggleTestDevice()
@@ -371,93 +421,135 @@ void toggleTestDevice()
 }
 
 // Check the set alarms and see if any of them are triggered
-void checkWaterPumpAlarms()
+void checkwaterPumpAlarms()
 {
-    // TEST DEVICE A1
+    // TEST DEVICE ALARM #1
     if (waterPump.enableAlarm_A1 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= WATER_PUMP_ON_HOUR_A1) &&
-            (now.hour() <= WATER_PUMP_OFF_HOUR_A1) &&
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A1) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A1) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm Triggered!");
-            Serial.println("Turning 'Water Pump' ON.");
+            Serial.println("Test Device Alarm #1 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
 #endif
-            waterPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
-            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 1;
+            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A1) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm reset!");
-            Serial.println("Turning 'Water Pump' OFF.");
+            Serial.println("Test Device Alarm #1 reset!");
+            Serial.println("Turning 'Test Device' OFF.");
 #endif
-            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            waterPumpTimer.stop();       // stop the ON interval timer
-            waterPump.turnDeviceOff();   // turn OFF the device indefenitley
-            waterPump.currentCycleCount = 0;
+            waterPump.alarmState = false;    // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();           // stop the ON interval timer
+            waterPump.turnDeviceOff();       // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0; // reset the amount of cycle counts durring alarm
         }
     }
-    // TEST DEVICE A2
+
+    // TEST DEVICE ALARM #2
     if (waterPump.enableAlarm_A2 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= WATER_PUMP_ON_HOUR_A2) &&
-            (now.hour() <= WATER_PUMP_OFF_HOUR_A2) &&
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A2) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A2) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm Triggered!");
-            Serial.println("Turning 'Water Pump' ON.");
+            Serial.println("Test Device Alarm #2 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
 #endif
-            waterPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
-            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 2;
+            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        else
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A2) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 2))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm reset!");
-            Serial.println("Turning 'Water Pump' OFF.");
+            Serial.println("Test Device Alarm #2 reset!");
+            Serial.println("Turning 'Test Device' OFF.");
 #endif
             waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            waterPumpTimer.stop();       // stop the ON interval timer
-            waterPump.turnDeviceOff();   // turn OFF the device indefenitley
-            waterPump.currentCycleCount = 0;
-        }
-    }
-    // TEST DEVICE A3
-    if (testDevice.enableAlarm_A3 == true)
-    {
-        // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= WATER_PUMP_ON_HOUR_A3) &&
-            (now.hour() <= WATER_PUMP_OFF_HOUR_A3) &&
-            (waterPump.alarmState == false))
-        {
-#ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm Triggered!");
-            Serial.println("Turning 'Water Pump' ON.");
-#endif
-            waterPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
-            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
-            waterPump.turnDeviceOn();                   // turn ON the device for the first time
-        }
-        else
-        {
-#ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Water Pump Alarm reset!");
-            Serial.println("Turning 'Water Pump' OFF.");
-#endif
-            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            waterPumpTimer.stop();       // stop the ON interval timer
-            waterPump.turnDeviceOff();   // turn OFF the device indefenitley
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
             waterPump.currentCycleCount = 0;
         }
     }
 
+    // TEST DEVICE ALARM #3
+    if (waterPump.enableAlarm_A3 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A3) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A3) &&
+            (waterPump.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #3 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
+#endif
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 3;
+            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A3) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #3 reset!");
+            Serial.println("Turning 'Test Device' OFF.");
+#endif
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
+        }
+    }
+
+    // TEST DEVICE ALARM #4
+    if (waterPump.enableAlarm_A4 == true)
+    {
+        // TURN DEVICE ON IF IT IS ALARM TIME
+        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A4) &&
+            (now.hour() < TEST_DEVICE_OFF_HOUR_A4) &&
+            (waterPump.alarmState == false))
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm #4 Triggered!");
+            Serial.println("Turning 'Test Device' ON.");
+#endif
+            waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            waterPump.lastAlarmTriggered = 4;
+            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPump.turnDeviceOn();                   // turn ON the device for the first time
+        }
+        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A4) && // if the current time matches the set alarm time
+            (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
+            (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
+        {
+#ifdef ENABLE_SERIAL_OUTPUT
+            Serial.println("Test Device Alarm reset!");
+            Serial.println("Turning 'Test Device' OFF.");
+#endif
+            waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
+            waterPumpTimer.stop();        // stop the ON interval timer
+            waterPump.turnDeviceOff();    // turn OFF the device indefenitley
+            waterPump.currentCycleCount = 0;
+        }
+    }
 }
 // Toggle the device state on/off forever
 void toggleWaterPump()
@@ -465,18 +557,18 @@ void toggleWaterPump()
 
     // this goes in the main loop
     if (waterPumpTimer.justFinished())
-    {                             // if the interval timer has finished
+    {                            // if the interval timer has finished
         waterPumpTimer.repeat(); // repeat the interval timer
 
         waterPump.deviceState = !waterPump.deviceState; // toggle device current state
 
         // toggle device
         if (waterPump.deviceState)
-        {                              // if the device state is ON
+        {                             // if the device state is ON
             waterPump.turnDeviceOn(); // toggle the device ON
         }
         else
-        {                                   // else if the state is OFF
+        {                                  // else if the state is OFF
             waterPump.turnDeviceOff();     // toggle the device OFF
             waterPump.currentCycleCount++; // increase current cycle count
         }
@@ -498,7 +590,7 @@ void checkOxygenPumpAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -509,8 +601,8 @@ void checkOxygenPumpAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();       // stop the ON interval timer
-            oxygenPump.turnDeviceOff();   // turn OFF the device indefenitley
+            oxygenPumpTimer.stop();        // stop the ON interval timer
+            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
             oxygenPump.currentCycleCount = 0;
         }
     }
@@ -526,7 +618,7 @@ void checkOxygenPumpAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -537,8 +629,8 @@ void checkOxygenPumpAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();       // stop the ON interval timer
-            oxygenPump.turnDeviceOff();   // turn OFF the device indefenitley
+            oxygenPumpTimer.stop();        // stop the ON interval timer
+            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
             oxygenPump.currentCycleCount = 0;
         }
     }
@@ -554,7 +646,7 @@ void checkOxygenPumpAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            oxygenPump.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            oxygenPump.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             oxygenPumpTimer.start(OXYGEN_PUMP_INTERVAL); // start ON interval timer for the first time
             oxygenPump.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -565,12 +657,11 @@ void checkOxygenPumpAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             oxygenPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            oxygenPumpTimer.stop();       // stop the ON interval timer
-            oxygenPump.turnDeviceOff();   // turn OFF the device indefenitley
+            oxygenPumpTimer.stop();        // stop the ON interval timer
+            oxygenPump.turnDeviceOff();    // turn OFF the device indefenitley
             oxygenPump.currentCycleCount = 0;
         }
     }
-
 }
 // Toggle the device state on/off forever
 void toggleOxygenPump()
@@ -611,7 +702,7 @@ void checkWhiteLightAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            whiteLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            whiteLight.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             whiteLightTimer.start(WHITE_LIGHT_INTERVAL); // start ON interval timer for the first time
             whiteLight.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -622,8 +713,8 @@ void checkWhiteLightAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             whiteLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            whiteLightTimer.stop();       // stop the ON interval timer
-            whiteLight.turnDeviceOff();   // turn OFF the device indefenitley
+            whiteLightTimer.stop();        // stop the ON interval timer
+            whiteLight.turnDeviceOff();    // turn OFF the device indefenitley
             whiteLight.currentCycleCount = 0;
         }
     }
@@ -639,7 +730,7 @@ void checkWhiteLightAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            whiteLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            whiteLight.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             whiteLightTimer.start(WHITE_LIGHT_INTERVAL); // start ON interval timer for the first time
             whiteLight.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -650,8 +741,8 @@ void checkWhiteLightAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             whiteLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            whiteLightTimer.stop();       // stop the ON interval timer
-            whiteLight.turnDeviceOff();   // turn OFF the device indefenitley
+            whiteLightTimer.stop();        // stop the ON interval timer
+            whiteLight.turnDeviceOff();    // turn OFF the device indefenitley
             whiteLight.currentCycleCount = 0;
         }
     }
@@ -667,7 +758,7 @@ void checkWhiteLightAlarms()
             Serial.println("Oxygen Pump Alarm Triggered!");
             Serial.println("Turning 'Oxygen Pump' ON.");
 #endif
-            whiteLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            whiteLight.alarmState = true;                // set the alarm state to ON so we dont repeatidly run this code
             whiteLightTimer.start(WHITE_LIGHT_INTERVAL); // start ON interval timer for the first time
             whiteLight.turnDeviceOn();                   // turn ON the device for the first time
         }
@@ -678,12 +769,11 @@ void checkWhiteLightAlarms()
             Serial.println("Turning 'Oxygen Pump' OFF.");
 #endif
             whiteLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            whiteLightTimer.stop();       // stop the ON interval timer
-            whiteLight.turnDeviceOff();   // turn OFF the device indefenitley
+            whiteLightTimer.stop();        // stop the ON interval timer
+            whiteLight.turnDeviceOff();    // turn OFF the device indefenitley
             whiteLight.currentCycleCount = 0;
         }
     }
-
 }
 // Toggle the device state on/off forever
 void toggleWhiteLight()
@@ -724,9 +814,9 @@ void checkRedLightAlarms()
             Serial.println("Red Light Alarm Triggered!");
             Serial.println("Turning 'Red Light' ON.");
 #endif
-            redLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
-            //redLightTimer.start(RED_LIGHT_INTERVAL); // start ON interval timer for the first time
-            redLight.turnDeviceOn();                   // turn ON the device for the first time
+            redLight.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
+            // redLightTimer.start(RED_LIGHT_INTERVAL); // start ON interval timer for the first time
+            redLight.turnDeviceOn(); // turn ON the device for the first time
         }
         else
         {
@@ -735,8 +825,8 @@ void checkRedLightAlarms()
             Serial.println("Turning 'Red Light' OFF.");
 #endif
             redLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            redLightTimer.stop();       // stop the ON interval timer
-            redLight.turnDeviceOff();   // turn OFF the device indefenitley
+            redLightTimer.stop();        // stop the ON interval timer
+            redLight.turnDeviceOff();    // turn OFF the device indefenitley
             redLight.currentCycleCount = 0;
         }
     }
@@ -752,9 +842,9 @@ void checkRedLightAlarms()
             Serial.println("Red Light Alarm Triggered!");
             Serial.println("Turning 'Red Light' ON.");
 #endif
-            redLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            redLight.alarmState = true;              // set the alarm state to ON so we dont repeatidly run this code
             redLightTimer.start(RED_LIGHT_INTERVAL); // start ON interval timer for the first time
-            redLight.turnDeviceOn();                   // turn ON the device for the first time
+            redLight.turnDeviceOn();                 // turn ON the device for the first time
         }
         else
         {
@@ -763,8 +853,8 @@ void checkRedLightAlarms()
             Serial.println("Turning 'Red Light' OFF.");
 #endif
             redLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            redLightTimer.stop();       // stop the ON interval timer
-            redLight.turnDeviceOff();   // turn OFF the device indefenitley
+            redLightTimer.stop();        // stop the ON interval timer
+            redLight.turnDeviceOff();    // turn OFF the device indefenitley
             redLight.currentCycleCount = 0;
         }
     }
@@ -780,9 +870,9 @@ void checkRedLightAlarms()
             Serial.println("Red Light Alarm Triggered!");
             Serial.println("Turning 'Red Light' ON.");
 #endif
-            redLight.alarmState = true;                 // set the alarm state to ON so we dont repeatidly run this code
+            redLight.alarmState = true;              // set the alarm state to ON so we dont repeatidly run this code
             redLightTimer.start(RED_LIGHT_INTERVAL); // start ON interval timer for the first time
-            redLight.turnDeviceOn();                   // turn ON the device for the first time
+            redLight.turnDeviceOn();                 // turn ON the device for the first time
         }
         else
         {
@@ -791,12 +881,11 @@ void checkRedLightAlarms()
             Serial.println("Turning 'Red Light' OFF.");
 #endif
             redLight.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
-            redLightTimer.stop();       // stop the ON interval timer
-            redLight.turnDeviceOff();   // turn OFF the device indefenitley
+            redLightTimer.stop();        // stop the ON interval timer
+            redLight.turnDeviceOff();    // turn OFF the device indefenitley
             redLight.currentCycleCount = 0;
         }
     }
-
 }
 // Toggle the device state on/off forever
 void toggleRedLight()
@@ -804,18 +893,18 @@ void toggleRedLight()
 
     // this goes in the main loop
     if (redLightTimer.justFinished())
-    {                             // if the interval timer has finished
+    {                           // if the interval timer has finished
         redLightTimer.repeat(); // repeat the interval timer
 
         redLight.deviceState = !redLight.deviceState; // toggle device current state
 
         // toggle device
         if (redLight.deviceState)
-        {                              // if the device state is ON
+        {                            // if the device state is ON
             redLight.turnDeviceOn(); // toggle the device ON
         }
         else
-        {                                   // else if the state is OFF
+        {                                 // else if the state is OFF
             redLight.turnDeviceOff();     // toggle the device OFF
             redLight.currentCycleCount++; // increase current cycle count
         }
@@ -824,9 +913,9 @@ void toggleRedLight()
 
 #pragma endregion
 
-#pragma region OUTPUTS
+#pragma region SERIAL_OUTPUTS
 // print test device status to the serial console
-void printTestDeviceState()
+void serial_displayTestDeviceState()
 {
 #ifdef ENABLE_SERIAL_OUTPUT
     if ((testDevice.alarmState == HIGH)) // only print this if the alarm is triggered
@@ -838,16 +927,104 @@ void printTestDeviceState()
         if ((testDevice.deviceState == HIGH)) // if the device state is ON
         {
             Serial.println("Test Device currently ON.");
+            Serial.print("Test Device current cyle count: ");
+            Serial.println(testDevice.currentCycleCount);
+
+            Serial.print("Test Device interval remaining: ");
+            Serial.println(testDeviceTimer.remaining());
         }
-
-        Serial.print("Test Device current cyle count: ");
-        Serial.println(testDevice.currentCycleCount);
-
-        Serial.print("Test Device interval remaining: ");
-        Serial.println(testDeviceTimer.remaining());
     }
 #endif
 }
+// print Water Pump status to the serial console
+void serial_displayWaterPumpState()
+{
+#ifdef ENABLE_SERIAL_OUTPUT
+    if ((waterPump.alarmState == HIGH)) // only print this if the alarm is triggered
+    {
+        if ((waterPump.deviceState == LOW)) // if the device state is OFF
+        {
+            Serial.println("Water Pump currently OFF.");
+        }
+        if ((waterPump.deviceState == HIGH)) // if the device state is ON
+        {
+            Serial.println("Water Pump currently ON.");
+            Serial.print("Water Pump current cyle count: ");
+            Serial.println(waterPump.currentCycleCount);
+
+            Serial.print("Water Pump interval remaining: ");
+            Serial.println(waterPumpTimer.remaining());
+        }
+    }
+#endif
+}
+// print Oxygen Pump status to the serial console
+void serial_displayOxygenPumpState()
+{
+#ifdef ENABLE_SERIAL_OUTPUT
+    if ((oxygenPump.alarmState == HIGH)) // only print this if the alarm is triggered
+    {
+        if ((oxygenPump.deviceState == LOW)) // if the device state is OFF
+        {
+            Serial.println("Oxygen Pump currently OFF.");
+        }
+        if ((oxygenPump.deviceState == HIGH)) // if the device state is ON
+        {
+            Serial.println("Oxygen Pump currently ON.");
+            Serial.print("Oxygen Pump current cyle count: ");
+            Serial.println(oxygenPump.currentCycleCount);
+
+            Serial.print("Oxygen Pump interval remaining: ");
+            Serial.println(oxygenPumpTimer.remaining());
+        }
+    }
+#endif
+}
+// print White Light status to the serial console
+void serial_displayWhiteLightState()
+{
+#ifdef ENABLE_SERIAL_OUTPUT
+    if ((whiteLight.alarmState == HIGH)) // only print this if the alarm is triggered
+    {
+        if ((whiteLight.deviceState == LOW)) // if the device state is OFF
+        {
+            Serial.println("White Light currently OFF.");
+        }
+        if ((whiteLight.deviceState == HIGH)) // if the device state is ON
+        {
+            Serial.println("White Light currently ON.");
+            Serial.print("White Light current cyle count: ");
+            Serial.println(whiteLight.currentCycleCount);
+
+            Serial.print("White Light interval remaining: ");
+            Serial.println(whiteLightTimer.remaining());
+        }
+    }
+#endif
+}
+// print Red Light status to the serial console
+void serial_displayRedLightState()
+{
+#ifdef ENABLE_SERIAL_OUTPUT
+    if ((redLight.alarmState == HIGH)) // only print this if the alarm is triggered
+    {
+        if ((redLight.deviceState == LOW)) // if the device state is OFF
+        {
+            Serial.println("Red Light currently OFF.");
+        }
+        if ((redLight.deviceState == HIGH)) // if the device state is ON
+        {
+            Serial.println("Red Light currently ON.");
+            Serial.print("Red Light current cyle count: ");
+            Serial.println(redLight.currentCycleCount);
+
+            Serial.print("Red Light interval remaining: ");
+            Serial.println(redLightTimer.remaining());
+        }
+    }
+#endif
+}
+
 #pragma endregion
 
 #pragma region I2C DEVICE SETUP
@@ -1114,7 +1291,7 @@ void oled_displayWhiteLightInfo()
     oled_displayTime(now, 0, 25);
 
     display.display();
-    #endif
+#endif
 }
 
 // output red light info to display
@@ -1162,7 +1339,7 @@ void oled_displayRedLightInfo()
     oled_displayTime(now, 0, 25);
 
     display.display();
-    #endif
+#endif
 }
 
 #pragma endregion

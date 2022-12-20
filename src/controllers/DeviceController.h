@@ -12,6 +12,7 @@ class DeviceController {
 
   public:
   bool alarmState;
+  byte lastAlarmTriggered;
   bool enableAlarm_A1;
   bool enableAlarm_A2;
   bool enableAlarm_A3;

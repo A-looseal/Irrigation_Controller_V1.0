@@ -18,8 +18,8 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-// #define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+//#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
 //  #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
 //  #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
 //  #define ENABLE_RED_LIGHT      // use this line to enable/dissable use of the RED_LIGHT
@@ -100,7 +100,7 @@ void loop()
     // checkSafetyButton();
 
 #ifdef ENABLE_TEST_DEVICE
-    checkTestDeviceAlarms(testDevice);
+    checkTestDeviceAlarms();
     toggleTestDevice();
     oled_displayTestDeviceInfo();
     serial_displayTestDeviceState();
@@ -119,7 +119,7 @@ void loop()
     serial_displayWaterPumpState();
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("Water Pump alarm state: ");
-    Serial.println(waterPumpAlarmState);
+    Serial.println(waterPump.alarmState);
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
@@ -134,7 +134,7 @@ void loop()
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("Oxygen Pump alarm state: ");
-    Serial.println(oxygenPumpAlarmState);
+    Serial.println(oxygenPump.alarmState);
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
@@ -150,7 +150,7 @@ void loop()
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("Oxygen Pump alarm state: ");
-    Serial.println(oxygenPumpAlarmState);
+    Serial.println(oxygenPump.alarmState);
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
@@ -166,7 +166,7 @@ void loop()
 #endif
 #ifdef ENABLE_SERIAL_OUTPUT
     Serial.print("Red Light alarm state: ");
-    Serial.println(redLightAlarmState);
+    Serial.println(redLight.alarmState);
     Serial.println("----------------");
     Serial.println("----------------");
 #endif
@@ -206,8 +206,9 @@ void checkSafetyButton()
 #pragma endregion
 
 #pragma region RELAY_LOGIC
+// CHECK TEST DEVICE
 // Check the set alarms and see if any of them are triggered
-void checkTestDeviceAlarms(DeviceController currentDevice)
+void checkTestDeviceAlarms()
 {
     // TEST DEVICE ALARM #1
     if (testDevice.enableAlarm_A1 == true)
@@ -361,33 +362,34 @@ void toggleTestDevice()
     }
 }
 
+// CHECK WATER PUMP ALARM
 // Check the set alarms and see if any of them are triggered
-void checkwaterPumpAlarms()
+void checkWaterPumpAlarms()
 {
-    // TEST DEVICE ALARM #1
+    // WATER PUMP ALARM #1
     if (waterPump.enableAlarm_A1 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A1) &&
-            (now.hour() < TEST_DEVICE_OFF_HOUR_A1) &&
+        if ((now.hour() >= WATER_PUMP_ON_HOUR_A1) &&
+            (now.hour() < WATER_PUMP_OFF_HOUR_A1) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #1 Triggered!");
-            Serial.println("Turning 'Test Device' ON.");
+            Serial.println("Water Pump Alarm #1 Triggered!");
+            Serial.println("Turning 'Water Pump' ON.");
 #endif
             waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
             waterPump.lastAlarmTriggered = 1;
-            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A1) && // if the current time matches the set alarm time
+        if ((now.hour() > WATER_PUMP_OFF_HOUR_A1) && // if the current time matches the set alarm time
             (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
             (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #1 reset!");
-            Serial.println("Turning 'Test Device' OFF.");
+            Serial.println("Water Pump Alarm #1 reset!");
+            Serial.println("Turning 'Water Pump' OFF.");
 #endif
             waterPump.alarmState = false;    // set the alarm state to OFF so we dont repeatidly run this code
             waterPumpTimer.stop();           // stop the ON interval timer
@@ -396,30 +398,30 @@ void checkwaterPumpAlarms()
         }
     }
 
-    // TEST DEVICE ALARM #2
+    // WATER PUMP ALARM #2
     if (waterPump.enableAlarm_A2 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A2) &&
-            (now.hour() < TEST_DEVICE_OFF_HOUR_A2) &&
+        if ((now.hour() >= WATER_PUMP_ON_HOUR_A2) &&
+            (now.hour() < WATER_PUMP_OFF_HOUR_A2) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #2 Triggered!");
-            Serial.println("Turning 'Test Device' ON.");
+            Serial.println("Water Pump Alarm #2 Triggered!");
+            Serial.println("Turning 'Water Pump' ON.");
 #endif
             waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
             waterPump.lastAlarmTriggered = 2;
-            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A2) && // if the current time matches the set alarm time
+        if ((now.hour() > WATER_PUMP_OFF_HOUR_A2) && // if the current time matches the set alarm time
             (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
             (waterPump.lastAlarmTriggered == 2))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #2 reset!");
-            Serial.println("Turning 'Test Device' OFF.");
+            Serial.println("Water Pump Alarm #2 reset!");
+            Serial.println("Turning 'Water Pump' OFF.");
 #endif
             waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
             waterPumpTimer.stop();        // stop the ON interval timer
@@ -428,30 +430,30 @@ void checkwaterPumpAlarms()
         }
     }
 
-    // TEST DEVICE ALARM #3
+    // WATER PUMP ALARM #3
     if (waterPump.enableAlarm_A3 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A3) &&
-            (now.hour() < TEST_DEVICE_OFF_HOUR_A3) &&
+        if ((now.hour() >= WATER_PUMP_ON_HOUR_A3) &&
+            (now.hour() < WATER_PUMP_OFF_HOUR_A3) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #3 Triggered!");
-            Serial.println("Turning 'Test Device' ON.");
+            Serial.println("Water Pump Alarm #3 Triggered!");
+            Serial.println("Turning 'Water Pump' ON.");
 #endif
             waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
             waterPump.lastAlarmTriggered = 3;
-            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A3) && // if the current time matches the set alarm time
+        if ((now.hour() > WATER_PUMP_OFF_HOUR_A3) && // if the current time matches the set alarm time
             (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
             (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #3 reset!");
-            Serial.println("Turning 'Test Device' OFF.");
+            Serial.println("Water Pump Alarm #3 reset!");
+            Serial.println("Turning 'Water Pump' OFF.");
 #endif
             waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
             waterPumpTimer.stop();        // stop the ON interval timer
@@ -460,30 +462,30 @@ void checkwaterPumpAlarms()
         }
     }
 
-    // TEST DEVICE ALARM #4
+    // WATER PUMP ALARM #4
     if (waterPump.enableAlarm_A4 == true)
     {
         // TURN DEVICE ON IF IT IS ALARM TIME
-        if ((now.hour() >= TEST_DEVICE_ON_HOUR_A4) &&
-            (now.hour() < TEST_DEVICE_OFF_HOUR_A4) &&
+        if ((now.hour() >= WATER_PUMP_ON_HOUR_A4) &&
+            (now.hour() < WATER_PUMP_OFF_HOUR_A4) &&
             (waterPump.alarmState == false))
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm #4 Triggered!");
-            Serial.println("Turning 'Test Device' ON.");
+            Serial.println("Water Pump Alarm #4 Triggered!");
+            Serial.println("Turning 'Water Pump' ON.");
 #endif
             waterPump.alarmState = true; // set the alarm state to ON so we dont repeatidly run this code
             waterPump.lastAlarmTriggered = 4;
-            waterPumpTimer.start(TEST_DEVICE_INTERVAL); // start ON interval timer for the first time
+            waterPumpTimer.start(WATER_PUMP_INTERVAL); // start ON interval timer for the first time
             waterPump.turnDeviceOn();                   // turn ON the device for the first time
         }
-        if ((now.hour() > TEST_DEVICE_OFF_HOUR_A4) && // if the current time matches the set alarm time
+        if ((now.hour() > WATER_PUMP_OFF_HOUR_A4) && // if the current time matches the set alarm time
             (waterPump.alarmState == true) &&        // if the alarm is TRIGGERED
             (waterPump.lastAlarmTriggered == 1))     // if the alarm triggered is this one
         {
 #ifdef ENABLE_SERIAL_OUTPUT
-            Serial.println("Test Device Alarm reset!");
-            Serial.println("Turning 'Test Device' OFF.");
+            Serial.println("Water Pump Alarm reset!");
+            Serial.println("Turning 'Water Pump' OFF.");
 #endif
             waterPump.alarmState = false; // set the alarm state to OFF so we dont repeatidly run this code
             waterPumpTimer.stop();        // stop the ON interval timer

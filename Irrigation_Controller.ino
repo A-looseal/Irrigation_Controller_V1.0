@@ -18,16 +18,16 @@
 #pragma endregion
 
 #pragma region ENABLE /DISABLE_DEVICES
-#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
-#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
+//#define ENABLE_TEST_DEVICE // use this line to enable/dissable use of the TEST DEVICE
+//#define ENABLE_WATER_PUMP  // use this line to enable/dissable use of the WATER PUMP
 #define ENABLE_OXYGEN_PUMP // use this line to enable/dissable use of the OXYGEN PUMP
 #define ENABLE_WHITE_LIGHT // use this line to enable/dissable use of the WHITE LIGHT
-//#define ENABLE_RED_LIGHT   // use this line to enable/dissable use of the RED_LIGHT
+#define ENABLE_RED_LIGHT   // use this line to enable/dissable use of the RED_LIGHT
 #pragma endregion
 
 #pragma region SYSTEM_DEFENITIONS
-#define RESET_RTC_TIME
-//#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
+//#define RESET_RTC_TIME
+#define ENABLE_SERIAL_OUTPUT // use this line to enable/dissable usage of the SERIAL CONSOLE
 #define ENABLE_OLED_OUTPUT   // use this line to enable/disable usage of the OLED device
 #define BAUD_RATE 9600
 #define STARTUP_DELAY 1000
@@ -59,7 +59,7 @@ millisDelay testDeviceTimer;     // create a new interval timer object to track 
 DeviceController testDevice(13); // create a new device object
 #pragma endregion
 #pragma region DEVICE_INTERVAL TIMERS
-const unsigned long TEST_DEVICE_INTERVAL = 10000; // in ms
+const unsigned long TEST_DEVICE_INTERVAL = 60000; // in ms
 const unsigned long WATER_PUMP_INTERVAL = 10000;  // in ms
 const unsigned long OXYGEN_PUMP_INTERVAL = 10000; // in ms
 const unsigned long WHITE_LIGHT_INTERVAL = 10000; // in ms
@@ -177,7 +177,7 @@ void loop()
 
 #ifdef ENABLE_OXYGEN_PUMP
     checkOxygenPumpAlarms();
-    toggleOxygenPump();
+    //toggleOxygenPump();
 
     if (oxygenPump.alarmState == HIGH)
     {
@@ -196,7 +196,7 @@ void loop()
 
 #ifdef ENABLE_WHITE_LIGHT
     checkWhiteLightAlarms();
-    toggleWhiteLight();
+    //toggleWhiteLight();
 
     if (whiteLight.alarmState == HIGH)
     {
@@ -215,7 +215,7 @@ void loop()
 
 #ifdef ENABLE_RED_LIGHT
     checkRedLightAlarms();
-    toggleRedLight();
+    //toggleRedLight();
 
     if (redLight.alarmState == HIGH)
     {

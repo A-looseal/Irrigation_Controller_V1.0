@@ -17,7 +17,7 @@ DeviceController::DeviceController(byte _devicePin)
 
 void DeviceController::turnDeviceOn()
 {
-  digitalWrite(devicePin, HIGH); // send HIGH signal to the device in order to trun it ON
+  digitalWrite(devicePin, LOW); // send HIGH signal to the device in order to trun it ON
   deviceState = HIGH;            // set device state to LOW
   totalCycleCount++;              //increase the amount of cycle counts since the program started running
   currentCycleCount++;            //increase the amount of cycle counts during the current alarm
@@ -25,7 +25,7 @@ void DeviceController::turnDeviceOn()
 
 void DeviceController::turnDeviceOff()
 {
-  digitalWrite(devicePin, LOW); // send LOW signal to the device in order to trun it OFF
+  digitalWrite(devicePin, HIGH); // send LOW signal to the device in order to trun it OFF
   deviceState = LOW;            // set device state to LOW
 }
 

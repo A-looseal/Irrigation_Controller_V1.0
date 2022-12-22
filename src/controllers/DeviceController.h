@@ -21,7 +21,7 @@ class DeviceController {
   bool enableAlarm_A6;
 
     bool deviceState;
-    int currentCycleCount;
+    byte currentCycleCount;
     int totalCycleCount;
 
 
